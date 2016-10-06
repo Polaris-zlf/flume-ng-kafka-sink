@@ -42,3 +42,19 @@ Configuration
 type = com.polaris.flume.sink.KafkaSink
 topic = default-flume-topic
 preprocessor = com.polaris.flume.sink.SimpleMessagePreprocessor
+
+
+编译时可能报下面的错：不用管
+ERROR Closing socket for /xxx.xxx.xxx.xxx because of error (kafka.network.Processor)
+java.io.IOException: Connection reset by peer
+        at sun.nio.ch.FileDispatcherImpl.write0(Native Method)
+        at sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:47)
+        at sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:93)
+        at sun.nio.ch.IOUtil.write(IOUtil.java:65)
+        at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:487)
+        at kafka.api.TopicDataSend.writeTo(FetchResponse.scala:122)
+        at kafka.network.MultiSend.writeTo(Transmission.scala:101)
+        at kafka.api.FetchResponseSend.writeTo(FetchResponse.scala:219)
+        at kafka.network.Processor.write(SocketServer.scala:375)
+        at kafka.network.Processor.run(SocketServer.scala:247)
+        at java.lang.Thread.run(Thread.java:745)
